@@ -2,14 +2,14 @@
 import * as config from "./config";
 import request = require("request");
 
-export class IPR {
+export class IAP {
   request: any;
 
   /**
-   * Creates an IPR object
+   * Creates an IAP object
    * @param {string} username - XFE API Username
    * @param {string} password - XFE API Password
-     */
+   */
   constructor(username: string, password: string) {
     this.request = request.defaults({
       baseUrl:  config.apiUrl,
@@ -21,14 +21,20 @@ export class IPR {
   }
 
   /**
-   * Get IP Address Threat Intelligence
-   * @param {string} ipAddress - IPv4/IPv6 Address to get threat intelligence for
+   * Get IAP Address Threat Intelligence
+   * @param {string} appName - App Name (like facebook) to get threat intelligence for
    * @returns {Promise<T>}
-     */
-  get(ipAddress: string) {
+   * @example
+   * // Returns intelligence about a web app
+   * var iapInstance = new IAP("username", "password");
+   * IAP.get("facebook").then(function(response) {
+   *   console.log(response)
+   * });
+   */
+  get(appName: string) {
     return new Promise((resolve, reject) => {
       this.request({
-        uri: "/ipr/" + ipAddress
+        uri: "/app/" + appName
       }, function(error, response, body) {
         if (error) {
           reject(error);

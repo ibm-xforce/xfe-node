@@ -2,20 +2,29 @@
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+var iap_1 = require("./iap");
 var ipr_1 = require("./ipr");
 var url_1 = require("./url");
 var collection_1 = require("./collection");
 require("babel-polyfill");
 
-var XFE = function XFE(username, password) {
+var XFE =
+/**
+ * Creates an XFE API Binding
+ * @param {string} username - XFE API Username
+ * @param {string} password - XFE API Password
+   */
+function XFE(username, password) {
     _classCallCheck(this, XFE);
 
     this.ipr = new ipr_1.IPR(username, password);
     this.url = new url_1.URL(username, password);
+    this.iap = new iap_1.IAP(username, password);
     this.collection = new collection_1.Collection(username, password);
 };
 
-exports.XFE = XFE;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = XFE;
 module.exports = XFE;
 //
 //

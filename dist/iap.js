@@ -8,15 +8,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var config = require("./config");
 var request = require("request");
 
-var URL = function () {
+var IAP = function () {
     /**
-     * Creates an URL object
+     * Creates an IAP object
      * @param {string} username - XFE API Username
      * @param {string} password - XFE API Password
      */
 
-    function URL(username, password) {
-        _classCallCheck(this, URL);
+    function IAP(username, password) {
+        _classCallCheck(this, IAP);
 
         this.request = request.defaults({
             baseUrl: config.apiUrl,
@@ -27,18 +27,26 @@ var URL = function () {
         });
     }
     /**
-     * Get URL Threat Intelligence
-     * @param {string} url - URL to search for
-     * @returns {Promise<T>} Returns a promise with the response
-       */
+     * Get IAP Address Threat Intelligence
+     * @param {string} appName - App Name (like facebook) to get threat intelligence for
+     * @returns {Promise<T>}
+     * @example
+     * // Returns intelligence about a web app
+     * var iapInstance = new IAP("username", "password");
+     * IAP.get("facebook").then(function(response) {
+     *   console.log(response)
+     * });
+     */
 
 
-    _createClass(URL, [{
+    _createClass(IAP, [{
         key: "get",
-        value: function get(url) {
+        value: function get(appName) {
+            var _this = this;
+
             return new Promise(function (resolve, reject) {
-                this.request({
-                    uri: "/ipr/" + url
+                _this.request({
+                    uri: "/app/" + appName
                 }, function (error, response, body) {
                     if (error) {
                         reject(error);
@@ -50,7 +58,7 @@ var URL = function () {
         }
     }]);
 
-    return URL;
+    return IAP;
 }();
 
-exports.URL = URL;
+exports.IAP = IAP;

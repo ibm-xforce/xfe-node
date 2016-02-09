@@ -4,6 +4,12 @@ import request = require("request");
 
 export class URL {
   request: any;
+
+  /**
+   * Creates an URL object
+   * @param {string} username - XFE API Username
+   * @param {string} password - XFE API Password
+   */
   constructor(username: string, password: string) {
     this.request = request.defaults({
       baseUrl:  config.apiUrl,
@@ -14,6 +20,11 @@ export class URL {
     });
   }
 
+  /**
+   * Get URL Threat Intelligence
+   * @param {string} url - URL to search for
+   * @returns {Promise<T>} Returns a promise with the response
+     */
   get(url: string) {
     return new Promise(function(resolve, reject) {
       this.request({

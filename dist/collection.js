@@ -1,8 +1,8 @@
 "use strict";
+///<reference path="../typings/request/request.d.ts" />
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-///<reference path="../typings/request/request.d.ts" />
 var config = require("./config");
 var request = require("request");
 var Shared;
