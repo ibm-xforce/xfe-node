@@ -1,0 +1,50 @@
+{
+  "name": "xfe",
+  "version": "0.0.1",
+  "description": "XFE API Wrappers for Node.js",
+  "homepage": "https://github.com/ibm-xforce/xfe-node",
+  "bugs": {
+    "url": "https://github.com/ibm-xforce/xfe-node/issues"
+  },
+  "author": {
+    "name": "Cameron Will",
+    "email": "scwill@us.ibm.com",
+    "url": "https://cwill.us"
+  },
+  "dependencies": {
+    "autodts": "~0.0.4",
+    "babel-polyfill": "^6.5.0",
+    "request": "^2.69.0"
+  },
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "babel-core": "^6.4.5",
+    "babel-plugin-add-module-exports": "^0.1.2",
+    "babel-register": "^6.5.1",
+    "chai": "^3.5.0",
+    "gulp": "^3.6.2",
+    "gulp-babel": "^6.1.2",
+    "gulp-mocha": "^2.2.0",
+    "gulp-shell": "^0.4.2",
+    "gulp-tsc": "^0.10.1",
+    "gulp-tslint": "^4.3.1",
+    "mocha": "*",
+    "nock": "^7.0.2",
+    "run-sequence": "^1.1.1",
+    "tslint": "^3.3.0"
+  },
+  "typescript": {
+    "definition": "index.d.ts"
+  },
+  "main": "dist/app.js",
+  "scripts": {
+    "prepublish": "gulp build",
+    "main": "gulp build",
+    "test": "gulp buildtest"
+  },
+  "keywords": [
+    "xfe",
+    "xforce",
+    "exchange"
+  ]
+}
