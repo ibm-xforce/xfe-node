@@ -9,11 +9,29 @@
 
 ## Description
 
-Blah Blah Blah this is a description.
+xfe-node is a Node.js library for interacting with the [IBM X-Force Exchange](https://exchange.xforce.ibmcloud.com).
+It provides a wrapper around the API which you can [use directly](https://api.xforce.ibmcloud.com) and 
+also provides some convenience functionality.
 
 ## Installation
 
+First, install npm on your machine. Then install the library in your project with
+```shell
+npm install xfe --save
+```
+
 ## How to Use
+
+Obtain an [API username and password](https://exchange.xforce.ibmcloud.com/settings/api)
+
+```javascript
+var xfe = require("xfe");
+var xfeClient = new xfe("api username", "api password");
+
+xfeClient.ipr.get("1.2.3.4").then(function(response) {
+  console.log(response);
+})
+```
 
 ## Support
 If you are having any questions or issues getting things to work, you can:
@@ -31,11 +49,11 @@ Check out our contributors [here](https://github.com/ibm-xforce/xfe-node/graphs/
 ### Development
 #### Prepare your environment
 * Install [Node.js](http://nodejs.org/) and NPM (should come with)
-* Install global dev dependencies: `npm install -g gulp karma`
+* Install global dev dependencies: `npm install -g gulp`
 * Install local dev dependencies: `npm install` while current directory is xfe-node repo
 
 #### Build
-* Build the whole project: `gulp` - this will run `jshint`, `test`, and `build` targets
+* Build the whole project: `gulp` - this will run `lint`, `build`, and `test` targets
 
 ### Release
 * Use GitHub's release tool to draft and publish a release. I like the format better than
