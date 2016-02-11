@@ -14,7 +14,7 @@ var paths = {
   tests: 'test/**/*.test.js'
 };
 
-gulp.task('default', ['lint', 'build']);
+gulp.task('default', ['lint', 'buildtest']);
 
 
 // ** Watching ** //
