@@ -5,7 +5,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 ///<reference path="../typings/request/request.d.ts" />
-var config = require("./config");
+var config_1 = require("./config");
 var request = require("request");
 
 var URL = function () {
@@ -19,7 +19,7 @@ var URL = function () {
         _classCallCheck(this, URL);
 
         this.request = request.defaults({
-            baseUrl: config.apiUrl,
+            baseUrl: config_1.apiUrl,
             auth: {
                 user: username,
                 pass: password

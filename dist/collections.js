@@ -7,7 +7,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 ///<reference path="../typings/request/request.d.ts" />
 ///<reference path="../typings/node-uuid/node-uuid.d.ts"/>
 ///<reference path="../typings/lodash/lodash.d.ts"/>
-var config = require("./config");
+var config_1 = require("./config");
 // External
 var request = require("request");
 var uuid = require("node-uuid");
@@ -19,7 +19,7 @@ var Collections = function () {
         _classCallCheck(this, Collections);
 
         this.request = request.defaults({
-            baseUrl: config.apiUrl,
+            baseUrl: config_1.apiUrl,
             auth: {
                 user: username,
                 pass: password

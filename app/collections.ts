@@ -2,13 +2,13 @@
 ///<reference path="../typings/node-uuid/node-uuid.d.ts"/>
 ///<reference path="../typings/lodash/lodash.d.ts"/>
 
-import * as config from "./config";
+import {apiUrl} from "./config";
 
 // External
-import request = require("request");
-import uuid = require("node-uuid");
-import _ = require("lodash");
-import fs = require("fs");
+import * as request from "request";
+import * as uuid from "node-uuid";
+import * as _ from "lodash";
+import * as fs from "fs";
 
 // Internal
 import { Collection } from "./interfaces/collection";
@@ -19,7 +19,7 @@ export class Collections {
 
   constructor(username: string, password: string) {
     this.request = request.defaults({
-      baseUrl: config.apiUrl,
+      baseUrl: apiUrl,
       auth: {
         user: username,
         pass: password

@@ -1,6 +1,6 @@
 ///<reference path="../typings/request/request.d.ts" />
-import * as config from "./config";
-import request = require("request");
+import {apiUrl} from "./config";
+import * as request from "request";
 
 export class URL {
   request: any;
@@ -12,7 +12,7 @@ export class URL {
    */
   constructor(username: string, password: string) {
     this.request = request.defaults({
-      baseUrl:  config.apiUrl,
+      baseUrl:  apiUrl,
       auth: {
         user: username,
         pass: password

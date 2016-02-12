@@ -5,7 +5,7 @@ var runseq = require('run-sequence');
 var tslint = require('gulp-tslint');
 var babel = require("gulp-babel");
 var mocha = require('gulp-mocha');
-var jsdoc = require('gulp-jsdoc3');
+var typedoc = require("gulp-typedoc");
 
 var paths = {
   tscripts: {
@@ -49,9 +49,15 @@ gulp.task('compile:typescript', function() {
 });
 
 gulp.task('doc', function (cb) {
-  var config = require('./conf.json');
-  gulp.src(['README.md', './dist/**/*.js'], {read: false})
-    .pipe(jsdoc(config, cb));
+  gulp.src(paths.tscripts.src)
+    .pipe(typedoc({
+      "module": "commonjs",
+      "target": "es6",
+      includeDeclarations: true,
+      out: "./doc",
+      name: "xfe-node",
+      version: true
+    }));
 });
 
   // ** Linting ** //
