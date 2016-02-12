@@ -2,6 +2,9 @@
 
 ## <a name="submit"></a> Submission Guidelines
 
+Before submitting a pull request, you must first sign our [Contributor License Agreement](CLA.md)
+and send a signed copy to scwill@us.ibm.com.
+
 ### <a name="submit-issue"></a> Submitting an Issue
 Before you submit an issue, search the archive, maybe your question was already answered.
 
@@ -136,13 +139,6 @@ The body should include the motivation for the change and contrast this with pre
 
 ### Footer
 The footer should contain any information about **Breaking Changes** and is also the place to
-reference GitHub issues that this commit **Closes**. You must also, if your first time contributing 
-to this repository, include a signature that you have read and understood the 
-[Developer Certificate of Origin (DCO)](DCO.txt). It should look like this:
-
-```
-DCO 1.1 Signed-off-by: Random J Developer <random@developer.org>
-```
-
+reference GitHub issues that this commit **Closes**.
 
 [plunker]: http://plnkr.co/edit
