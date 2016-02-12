@@ -1,17 +1,22 @@
 'use strict';
-var expect = require('chai').expect;
+var chai = require('chai');
 var nock = require('nock');
+var config = require("./config");
+var chaiAsPromised = require("chai-as-promised");
+
+chai.use(chaiAsPromised);
+var expect = chai.expect;
 describe('xfe.ipr', function() {
 
   it('exists', function() {
     var xfe = require('../dist/app.js');
-    var xfeClient = new xfe("username", "password");
+    var xfeClient = new xfe(config.username, config.password);
     expect(xfeClient.ipr).to.exist;
   });
 
   it('responds to an IPR request', function() {
     var xfe = require('../dist/app.js');
-    var xfeClient = new xfe("username", "password");
+    var xfeClient = new xfe(config.username, config.password);
     var apiResponse = {
       "ip": "1.2.3.4",
       "subnets": [
@@ -48,12 +53,10 @@ describe('xfe.ipr', function() {
         "Botnet Command and Control Server": "This category contains IP addresses that host a botnet command and control server."
       }
     };
-    nock('http://api.xforce.ibmcloud.com')
+    nock('https://api.xforce.ibmcloud.com')
       .get('/ipr/1.2.3.4')
       .reply(200, apiResponse);
-    xfeClient.ipr.get("1.2.3.4").then(function(body) {
-      expect(body).to.equal(apiResponse);
-    });
+    expect(xfeClient.ipr.get("1.2.3.4")).to.eventually.equal(apiResponse);
   });
 
 });

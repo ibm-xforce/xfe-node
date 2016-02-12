@@ -5,11 +5,8 @@
   "path": "typings",
   "bundle": "typings/tsd.d.ts",
   "installed": {
-    "form-data/form-data.d.ts": {
-      "commit": "3030a4be536b6530c06b80081f1333dc0de4d703"
-    },
     "node/node.d.ts": {
-      "commit": "3030a4be536b6530c06b80081f1333dc0de4d703"
+      "commit": "44c9273e1e92bc95368f599d1dcda9f560a68956"
     },
     "request/request.d.ts": {
       "commit": "3030a4be536b6530c06b80081f1333dc0de4d703"
@@ -22,6 +19,18 @@
     },
     "assertion-error/assertion-error.d.ts": {
       "commit": "3030a4be536b6530c06b80081f1333dc0de4d703"
+    },
+    "lodash/lodash.d.ts": {
+      "commit": "44c9273e1e92bc95368f599d1dcda9f560a68956"
+    },
+    "node-uuid/node-uuid.d.ts": {
+      "commit": "44c9273e1e92bc95368f599d1dcda9f560a68956"
+    },
+    "node-uuid/node-uuid-base.d.ts": {
+      "commit": "44c9273e1e92bc95368f599d1dcda9f560a68956"
+    },
+    "node-uuid/node-uuid-cjs.d.ts": {
+      "commit": "44c9273e1e92bc95368f599d1dcda9f560a68956"
     }
   }
 }

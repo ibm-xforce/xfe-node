@@ -1,17 +1,22 @@
 'use strict';
-var expect = require('chai').expect;
+var chai = require('chai');
 var nock = require('nock');
+var config = require("./config");
+var chaiAsPromised = require("chai-as-promised");
+
+chai.use(chaiAsPromised);
+var expect = chai.expect;
 describe('xfe.url', function() {
 
   it('exists', function() {
     var xfe = require('../dist/app.js');
-    var xfeClient = new xfe("username", "password");
+    var xfeClient = new xfe(config.username, config.password);
     expect(xfeClient.url).to.exist;
   });
 
   it('responds to an URL request', function() {
     var xfe = require('../dist/app.js');
-    var xfeClient = new xfe("username", "password");
+    var xfeClient = new xfe(config.username, config.password);
     var apiResponse = {
       "result": {
         "url": "google.com",
@@ -24,12 +29,10 @@ describe('xfe.url', function() {
         "score": 1
       }
     };
-    nock('http://api.xforce.ibmcloud.com')
+    nock('https://api.xforce.ibmcloud.com')
       .get('/url/google.com')
       .reply(200, apiResponse);
-    xfeClient.url.get("google.com").then(function(body) {
-      expect(body).to.equal(apiResponse);
-    });
+    expect(xfeClient.url.get("google.com")).to.eventually.equal(apiResponse);
   });
 
 });

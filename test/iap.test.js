@@ -1,17 +1,22 @@
 'use strict';
-var expect = require('chai').expect;
+var chai = require('chai');
 var nock = require('nock');
+var config = require("./config");
+var chaiAsPromised = require("chai-as-promised");
+
+chai.use(chaiAsPromised);
+var expect = chai.expect;
 describe('xfe.iap', function() {
 
   it('exists', function() {
     var xfe = require('../dist/app.js');
-    var xfeClient = new xfe("username", "password");
+    var xfeClient = new xfe(config.username, config.password);
     expect(xfeClient.iap).to.exist;
   });
 
   it('responds to an URL request', function() {
     var xfe = require('../dist/app.js');
-    var xfeClient = new xfe("username", "password");
+    var xfeClient = new xfe(config.username, config.password);
     var apiResponse = {
       "application": {
         "canonicalName": "facebook",
@@ -70,12 +75,10 @@ describe('xfe.iap', function() {
         ]
       }
     };
-    nock('http://api.xforce.ibmcloud.com')
+    nock('https://api.xforce.ibmcloud.com')
       .get('/iap/facebook')
       .reply(200, apiResponse);
-    xfeClient.iap.get("facebook").then(function(body) {
-      expect(body).to.equal(apiResponse);
-    });
+    expect(xfeClient.iap.get("facebook")).to.eventually.equal(apiResponse);
   });
 
 });

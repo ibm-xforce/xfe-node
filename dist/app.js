@@ -5,7 +5,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var iap_1 = require("./iap");
 var ipr_1 = require("./ipr");
 var url_1 = require("./url");
-var collection_1 = require("./collection");
+var collections_1 = require("./collections");
 require("babel-polyfill");
 
 var XFE =
@@ -20,11 +20,10 @@ function XFE(username, password) {
     this.ipr = new ipr_1.IPR(username, password);
     this.url = new url_1.URL(username, password);
     this.iap = new iap_1.IAP(username, password);
-    this.collection = new collection_1.Collection(username, password);
+    this.collections = new collections_1.Collections(username, password);
 };
 
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = XFE;
+exports.XFE = XFE;
 module.exports = XFE;
 //
 //

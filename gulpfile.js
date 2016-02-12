@@ -5,6 +5,7 @@ var runseq = require('run-sequence');
 var tslint = require('gulp-tslint');
 var babel = require("gulp-babel");
 var mocha = require('gulp-mocha');
+var jsdoc = require('gulp-jsdoc3');
 
 var paths = {
   tscripts: {
@@ -47,7 +48,13 @@ gulp.task('compile:typescript', function() {
     .pipe(gulp.dest(paths.tscripts.dest));
 });
 
-// ** Linting ** //
+gulp.task('doc', function (cb) {
+  var config = require('./conf.json');
+  gulp.src(['README.md', './dist/**/*.js'], {read: false})
+    .pipe(jsdoc(config, cb));
+});
+
+  // ** Linting ** //
 
 gulp.task('lint', ['lint:default']);
 gulp.task('lint:default', function() {

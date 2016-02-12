@@ -12,7 +12,7 @@ export class IAP {
    */
   constructor(username: string, password: string) {
     this.request = request.defaults({
-      baseUrl:  config.apiUrl,
+      baseUrl: config.apiUrl,
       auth: {
         user: username,
         pass: password
@@ -35,7 +35,7 @@ export class IAP {
     return new Promise((resolve, reject) => {
       this.request({
         uri: "/app/" + appName
-      }, function(error, response, body) {
+      }, function (error, response, body) {
         if (error) {
           reject(error);
         } else {
@@ -45,4 +45,3 @@ export class IAP {
     });
   }
 }
-
