@@ -92,6 +92,18 @@ export class Collections {
       });
     });
   }
+
+  delete(collectionID: string) {
+    return new Promise((resolve, reject) => {
+      this.request({
+        method: "DELETE",
+        uri: "/casefiles/" + collectionID,
+        json: true,
+      }, (error, response, body) => {
+        (error ? reject(error) : resolve(body));
+      });
+    });
+  }
 }
 
 

@@ -93,6 +93,21 @@ var Collections = function () {
                 });
             });
         }
+    }, {
+        key: "delete",
+        value: function _delete(collectionID) {
+            var _this2 = this;
+
+            return new Promise(function (resolve, reject) {
+                _this2.request({
+                    method: "DELETE",
+                    uri: "/casefiles/" + collectionID,
+                    json: true
+                }, function (error, response, body) {
+                    error ? reject(error) : resolve(body);
+                });
+            });
+        }
     }]);
 
     return Collections;
