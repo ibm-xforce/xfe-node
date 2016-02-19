@@ -9,6 +9,8 @@ import * as fs from "fs";
 // Internal
 import { Collection } from "./interfaces/collection";
 import { CollectionCreation } from "./interfaces/collectionCreation";
+import {CollectionRetreival} from "./interfaces/collection";
+import {Shared} from "./interfaces/collection";
 
 export class Collections {
   request: any;
@@ -101,10 +103,22 @@ export class Collections {
     });
   }
 
-  get(collectionID: string) {
+  get(collectionOptions?: CollectionRetreival) {
     return new Promise((resolve, reject) => {
+      let uri = "";
+      if (collectionOptions && collectionOptions.collectionID) {
+        uri = "/casefiles/" + collectionOptions.collectionID;
+      } else if (collectionOptions && collectionOptions.type) {
+        if (collectionOptions.type === Shared.Mine) {
+          uri = "/casefiles";
+        } else {
+          uri = "/casefiles/" + collectionOptions.type.toString().toLowerCase();
+        }
+      } else {
+        uri = "/casefiles";
+      }
       this.request({
-        uri: "/casefiles/" + collectionID
+        uri: uri
       }, function(error, response, body) {
         if (error) {
           reject(error);

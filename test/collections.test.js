@@ -73,7 +73,69 @@ describe('xfe.collections', function() {
         "shared": "shared",
         "mine": true
       });
-    expect(xfeClient.collections.get('eb3336fc49e63c596aec9b5096d650eb')).to.be.fulfilled;
+    expect(xfeClient.collections.get({collectionID: 'eb3336fc49e63c596aec9b5096d650eb'})).to.be.fulfilled;
   });
+
+  it('retrieves all my collections if get is called with nothing', function() {
+    nock('https://api.xforce.ibmcloud.com')
+      .get('/casefiles/')
+      .reply(200, {
+        "casefiles": [
+          {
+            "caseFileID": "eb3336fc49e63c596aec9b5096d650eb",
+            "created": "2016-02-18T23:50:23.686Z",
+            "owner": {
+              "name": "Cameron Will",
+              "userid": "http://www.ibm.com/270007803C",
+              "verified": "ibmexpert",
+              "connectionsId": 200371532
+            },
+            "title": "TrojanDownloader:Win32/Upatre.CQ",
+            "shared": "shared",
+            "nPeople": 20,
+            "nGroups": 3,
+            "links": [],
+            "reports": {
+              "IP": 51,
+              "file": 1,
+              "URL": 3,
+              "MAL": 1,
+              "VUL": 1
+            }
+          }
+      ]});
+    expect(xfeClient.collections.get()).to.be.fulfilled;
+  });
+
+  it('should get shared with me collections', function() {
+    nock('https://api.xforce.ibmcloud.com')
+      .get('/casefiles/shared')
+      .reply(200, {
+        "casefiles": [
+          {
+            "caseFileID": "eb3336fc49e63c596aec9b5096d650eb",
+            "created": "2016-02-18T23:50:23.686Z",
+            "owner": {
+              "name": "Cameron Will",
+              "userid": "http://www.ibm.com/270007803C",
+              "verified": "ibmexpert",
+              "connectionsId": 200371532
+            },
+            "title": "TrojanDownloader:Win32/Upatre.CQ",
+            "shared": "shared",
+            "nPeople": 20,
+            "nGroups": 3,
+            "links": [],
+            "reports": {
+              "IP": 51,
+              "file": 1,
+              "URL": 3,
+              "MAL": 1,
+              "VUL": 1
+            }
+          }
+        ]});
+    expect(xfeClient.collections.get({type: "Shared"})).to.be.fulfilled;
+  })
 
 });

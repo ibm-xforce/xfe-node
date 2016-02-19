@@ -1,8 +1,8 @@
 
-export enum Shared {
-  "off",
-  "shared",
-  "public"
+export class Shared {
+  static Mine = "mine";
+  static Shared = "shared";
+  static Public = "public";
 }
 
 export interface Collection {
@@ -21,4 +21,9 @@ export interface Collection {
   nPeople: number;
   shared: Shared;
   mine: boolean;
+}
+
+export interface CollectionRetreival {
+  collectionID?: string;
+  type?: Shared;
 }

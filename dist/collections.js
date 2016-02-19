@@ -10,6 +10,7 @@ var request = require("request");
 var uuid = require("node-uuid");
 var _ = require("lodash");
 var fs = require("fs");
+var collection_1 = require("./interfaces/collection");
 
 var Collections = function () {
     function Collections(username, password) {
@@ -107,12 +108,24 @@ var Collections = function () {
         }
     }, {
         key: "get",
-        value: function get(collectionID) {
+        value: function get(collectionOptions) {
             var _this3 = this;
 
             return new Promise(function (resolve, reject) {
+                var uri = "";
+                if (collectionOptions && collectionOptions.collectionID) {
+                    uri = "/casefiles/" + collectionOptions.collectionID;
+                } else if (collectionOptions && collectionOptions.type) {
+                    if (collectionOptions.type === collection_1.Shared.Mine) {
+                        uri = "/casefiles";
+                    } else {
+                        uri = "/casefiles/" + collectionOptions.type.toString().toLowerCase();
+                    }
+                } else {
+                    uri = "/casefiles";
+                }
                 _this3.request({
-                    uri: "/casefiles/" + collectionID
+                    uri: uri
                 }, function (error, response, body) {
                     if (error) {
                         reject(error);
