@@ -4,7 +4,7 @@
 | ------------- | ------------- |
 | License  | [![Apache license][license-image]][license-url]  |
 | Testing  | [![Build Status][build-image]][build-url] [![Coverage Status][coverage-image]][coverage-url] |
-| Quality |  [![Dependencies status][dep-status-image]][dep-status-url]  [![Code Climate][code-climate-image]][code-climate-url] |
+| Quality |  [![Dependencies status][dep-status-image]][dep-status-url]|
 
 ## Description
 
