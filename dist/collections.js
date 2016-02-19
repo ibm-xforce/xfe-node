@@ -105,6 +105,23 @@ var Collections = function () {
                 });
             });
         }
+    }, {
+        key: "get",
+        value: function get(collectionID) {
+            var _this3 = this;
+
+            return new Promise(function (resolve, reject) {
+                _this3.request({
+                    uri: "/casefiles/" + collectionID
+                }, function (error, response, body) {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        resolve(body);
+                    }
+                });
+            });
+        }
     }]);
 
     return Collections;

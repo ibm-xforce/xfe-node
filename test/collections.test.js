@@ -48,4 +48,32 @@ describe('xfe.collections', function() {
     expect(xfeClient.collections.delete("eb3336fc49e63c596aec9b5096d650eb")).to.be.fulfilled;
   });
 
+  it('retrieves a collection given a collection ID', function() {
+    nock('https://api.xforce.ibmcloud.com')
+      .get('/casefiles/eb3336fc49e63c596aec9b5096d650eb')
+      .reply(200, {
+        "created": "2016-02-18T23:50:23.686Z",
+        "owner": {
+          "name": "Cameron Will",
+          "uuid": "http://www.ibm.com/270007803C",
+          "verified": "ibmexpert",
+          "connectionsId": 200371532
+        },
+        "title": "TrojanDownloader:Win32/Upatre.CQ",
+        "contents": {
+          "wiki": "Wiin Information",
+          "reports": []
+        },
+        "caseFileID": "eb3336fc49e63c596aec9b5096d650eb",
+        "links": [],
+        "writeable": true,
+        "deletable": true,
+        "nPeople": 2,
+        "nGroups": 1,
+        "shared": "shared",
+        "mine": true
+      });
+    expect(xfeClient.collections.get('eb3336fc49e63c596aec9b5096d650eb')).to.be.fulfilled;
+  });
+
 });

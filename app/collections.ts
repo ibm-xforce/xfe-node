@@ -100,6 +100,20 @@ export class Collections {
       });
     });
   }
+
+  get(collectionID: string) {
+    return new Promise((resolve, reject) => {
+      this.request({
+        uri: "/casefiles/" + collectionID
+      }, function(error, response, body) {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(body);
+        }
+      });
+    });
+  }
 }
 
 
