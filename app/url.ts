@@ -25,7 +25,7 @@ export class URL {
    * @returns {Promise<T>} Returns a promise with the response
      */
   get(url: string) {
-    return new Promise(function(resolve, reject) {
+    return new Promise((resolve, reject) => {
       this.request({
         uri: "/url/" + url
       }, function(error, response, body) {

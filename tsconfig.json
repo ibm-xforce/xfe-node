@@ -15,6 +15,7 @@
     "app/config.ts",
     "app/iap.ts",
     "app/ipr.ts",
-    "app/url.ts"
+    "app/url.ts",
+    "app/files.ts"
   ]
 }

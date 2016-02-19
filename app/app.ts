@@ -2,6 +2,7 @@ import { IAP } from "./iap";
 import { IPR } from "./ipr";
 import { URL } from "./url";
 import { Collections } from "./collections";
+import { Files } from "./files";
 import "babel-polyfill";
 
 export default class XFE {
@@ -9,6 +10,7 @@ export default class XFE {
   url: URL;
   iap: IAP;
   collections: Collections;
+  files: Files;
 
   /**
    * Creates an XFE API Binding
@@ -21,6 +23,7 @@ export default class XFE {
     this.url = new URL(username, password);
     this.iap = new IAP(username, password);
     this.collections = new Collections(username, password);
+    this.files = new Files(username, password);
   }
 
 }

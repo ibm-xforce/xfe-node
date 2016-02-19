@@ -6,16 +6,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var config_1 = require("./config");
 var request = require("request");
+var fs = require("fs");
 
-var URL = function () {
+var Files = function () {
     /**
-     * Creates an URL object
+     * Creates an File Analysis object
      * @param {string} username - XFE API Username
      * @param {string} password - XFE API Password
      */
 
-    function URL(username, password) {
-        _classCallCheck(this, URL);
+    function Files(username, password) {
+        _classCallCheck(this, Files);
 
         this.request = request.defaults({
             baseUrl: config_1.apiUrl,
@@ -25,33 +26,35 @@ var URL = function () {
             }
         });
     }
-    /**
-     * Get URL Threat Intelligence
-     * @param {string} url - URL to search for
-     * @returns {Promise<T>} Returns a promise with the response
-       */
 
-
-    _createClass(URL, [{
-        key: "get",
-        value: function get(url) {
+    _createClass(Files, [{
+        key: "getIntel",
+        value: function getIntel(filePath) {
             var _this = this;
 
             return new Promise(function (resolve, reject) {
-                _this.request({
-                    uri: "/url/" + url
-                }, function (error, response, body) {
-                    if (error) {
-                        reject(error);
-                    } else {
-                        resolve(body);
-                    }
-                });
+                if (filePath) {
+                    var formData = {
+                        "file": fs.createReadStream(filePath)
+                    };
+                    _this.request({
+                        method: "POST",
+                        uri: "/files",
+                        formData: formData,
+                        json: true
+                    }, function (error, response, body) {
+                        if (error) {
+                            reject(error);
+                        } else {
+                            resolve(body);
+                        }
+                    });
+                }
             });
         }
     }]);
 
-    return URL;
+    return Files;
 }();
 
-exports.URL = URL;
+exports.Files = Files;
