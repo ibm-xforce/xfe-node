@@ -25,24 +25,3 @@ export default class XFE {
 
 }
 module.exports = XFE;
-//
-//
-//var xfe = require("xfe")("user", "password");
-//
-//
-//var email = fs.readFileSync("./email.eml", 'utf-8');
-//
-//email = {
-//  buffer: "plaintext utf-8 encoded",
-//  ...
-//};
-//
-//var collection = {
-//  title: "Test Collection 1",
-//  file: email,
-//  wiki: "Hey CISO, here is a description"
-//};
-//
-//xfe.createCollection(collection).then(function(collection) {
-//  console.log(collection.url); //=> to give to interested parties
-//});
