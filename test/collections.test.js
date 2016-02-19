@@ -39,6 +39,15 @@ describe('xfe.collections', function() {
     expect(xfeClient.collections.create({filePath: "./test/fixtures/importtest.txt"})).to.be.fulfilled;
   });
 
+  it('creates a collection given wiki contents', function() {
+    this.timeout(5000);
+    var apiResponse = {"caseFileID": "eb3336fc49e63c596aec9b5096d650eb"};
+    var requests = nock('https://api.xforce.ibmcloud.com')
+      .post('/casefiles')
+      .reply(200, apiResponse);
+    expect(xfeClient.collections.create({contents: "<h1>Hello!</h1>"})).to.be.fulfilled;
+  });
+
   it('deletes a collection', function() {
     var requests = nock('https://api.xforce.ibmcloud.com')
       .delete('/casefiles/eb3336fc49e63c596aec9b5096d650eb')
