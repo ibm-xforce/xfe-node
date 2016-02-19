@@ -8,5 +8,4 @@ before_install:
 before_script:
 - npm install -g gulp typings
 - npm install
-- typings install
 script: gulp buildtest

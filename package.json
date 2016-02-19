@@ -45,7 +45,7 @@
   },
   "main": "dist/app.js",
   "scripts": {
-    "prepublish": "gulp build",
+    "prepublish": "typings install && gulp build",
     "main": "gulp build",
     "test": "gulp buildtest"
   },
