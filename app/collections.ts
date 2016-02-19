@@ -1,7 +1,3 @@
-///<reference path="../typings/request/request.d.ts" />
-///<reference path="../typings/node-uuid/node-uuid.d.ts"/>
-///<reference path="../typings/lodash/lodash.d.ts"/>
-
 import {apiUrl} from "./config";
 
 // External

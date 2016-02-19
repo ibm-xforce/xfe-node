@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var tsc = require('gulp-tsc');
+var ts = require('gulp-typescript');
 var shell = require('gulp-shell');
 var runseq = require('run-sequence');
 var tslint = require('gulp-tslint');
@@ -15,8 +15,9 @@ var paths = {
   tests: 'test/**/*.test.js'
 };
 
-gulp.task('default', ['lint', 'buildtest']);
+var tsProject = ts.createProject('tsconfig.json');
 
+gulp.task('default', ['lint', 'buildtest']);
 
 // ** Watching ** //
 
@@ -37,18 +38,13 @@ gulp.task('buildtest', function(callback) {
 });
 
 gulp.task('compile:typescript', function() {
-  return gulp
-    .src(paths.tscripts.src)
-    .pipe(tsc({
-      module: "commonjs",
-      emitError: false,
-      target: "es6"
-    }))
+  return tsProject.src()
+    .pipe(ts(tsProject))
     .pipe(babel())
     .pipe(gulp.dest(paths.tscripts.dest));
 });
 
-gulp.task('doc', function (cb) {
+gulp.task('doc', function(cb) {
   gulp.src(paths.tscripts.src)
     .pipe(typedoc({
       "module": "commonjs",
@@ -60,7 +56,7 @@ gulp.task('doc', function (cb) {
     }));
 });
 
-  // ** Linting ** //
+// ** Linting ** //
 
 gulp.task('lint', ['lint:default']);
 gulp.task('lint:default', function() {

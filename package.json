@@ -33,6 +33,7 @@
     "gulp-tsc": "^0.10.1",
     "gulp-tslint": "^4.3.1",
     "gulp-typedoc": "^1.2.1",
+    "gulp-typescript": "^2.11.0",
     "jsdoc-babel": "^0.1.0",
     "mocha": "*",
     "nock": "^7.0.2",

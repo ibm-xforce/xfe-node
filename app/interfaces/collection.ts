@@ -1,5 +1,5 @@
 
-enum Shared {
+export enum Shared {
   "off",
   "shared",
   "public"

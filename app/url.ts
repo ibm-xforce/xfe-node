@@ -1,4 +1,3 @@
-///<reference path="../typings/request/request.d.ts" />
 import {apiUrl} from "./config";
 import * as request from "request";
 
