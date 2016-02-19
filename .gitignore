@@ -3,3 +3,5 @@ node_modules/
 *.log
 *.tgz
 .idea/*
+coverage/
+.coveralls.yml

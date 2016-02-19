@@ -10,3 +10,5 @@ before_install:
 before_script:
 - npm install
 script: gulp buildtest
+after_script:
+- ./node_modules/.bin/gulp coveralls
