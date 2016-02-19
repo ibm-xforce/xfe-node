@@ -8,6 +8,8 @@
   },
   "files": [
     "typings/main.d.ts",
+    "app/interfaces/collection.ts",
+    "app/interfaces/collectionCreation.ts",
     "app/app.ts",
     "app/collections.ts",
     "app/config.ts",

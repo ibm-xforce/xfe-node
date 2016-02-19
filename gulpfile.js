@@ -45,7 +45,7 @@ gulp.task('compile:typescript', function() {
 });
 
 gulp.task('doc', function(cb) {
-  gulp.src(paths.tscripts.src)
+  tsProject.src()
     .pipe(typedoc({
       "module": "commonjs",
       "target": "es6",
