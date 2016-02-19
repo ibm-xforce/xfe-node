@@ -27,7 +27,7 @@ export class URL {
   get(url: string) {
     return new Promise(function(resolve, reject) {
       this.request({
-        uri: "/ipr/" + url
+        uri: "/url/" + url
       }, function(error, response, body) {
         if (error) {
           reject(error);

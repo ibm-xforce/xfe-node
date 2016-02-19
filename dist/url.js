@@ -37,7 +37,7 @@ var URL = function () {
         value: function get(url) {
             return new Promise(function (resolve, reject) {
                 this.request({
-                    uri: "/ipr/" + url
+                    uri: "/url/" + url
                 }, function (error, response, body) {
                     if (error) {
                         reject(error);
