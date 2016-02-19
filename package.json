@@ -49,7 +49,10 @@
   "scripts": {
     "prepublish": "typings install && gulp build",
     "main": "gulp build",
-    "test": "gulp buildtest"
+    "test": "gulp buildtest",
+    "preversion": "gulp buildtest",
+    "version": "gulp buildtest && git add -A dist",
+    "postversion": "git push && git push --tags"
   },
   "keywords": [
     "xfe",

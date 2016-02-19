@@ -5,7 +5,7 @@
 | License  | [![Apache license][license-image]][license-url]  |
 | Testing  | [![Build Status][build-image]][build-url] [![Coverage Status][coverage-image]][coverage-url] |
 | Quality |  [![Dependencies status][dep-status-image]][dep-status-url]|
-
+| Stats |  [![NPM Image][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url]
 ## Description
 
 xfe-node is a Node.js library for interacting with the [IBM X-Force Exchange](https://exchange.xforce.ibmcloud.com).
@@ -70,3 +70,6 @@ changelogs.
 [code-climate-url]: https://codeclimate.com/github/ibm-xforce/xfe-node
 [license-image]: http://img.shields.io/badge/license-Apachev2-blue.svg?style=flat-square
 [license-url]: http://www.apache.org/licenses/LICENSE-2.0
+[npm-image]: https://img.shields.io/npm/v/xfe.svg
+[downloads-image]: https://img.shields.io/npm/dm/xfe.svg
+[npm-url]: https://www.npmjs.com/package/xfe
