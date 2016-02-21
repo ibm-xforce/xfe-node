@@ -45,6 +45,10 @@
   "typescript": {
     "definition": "index.d.ts"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ibm-xforce/xfe-node.git"
+  },
   "main": "dist/app.js",
   "scripts": {
     "prepublish": "typings install && gulp build",
