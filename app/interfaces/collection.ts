@@ -5,25 +5,37 @@ export class Shared {
   static Public = "public";
 }
 
-export interface Collection {
-  created: Date;
-  owner: {
+export class ShareLevel {
+  static Read = "read";
+  static Contribute = "contribute";
+}
+
+export interface ICollection {
+  created?: Date;
+  owner?: {
     name: string
   };
-  title: string;
-  contents: {
+  title?: string;
+  contents?: {
     wiki: string;
     reports: Array<any>
   };
-  caseFileID: string;
-  writeable: boolean;
-  deletable: boolean;
-  nPeople: number;
-  shared: Shared;
-  mine: boolean;
+  collectionID: string;
+  writeable?: boolean;
+  deletable?: boolean;
+  nPeople?: number;
+  shared?: Shared;
+  mine?: boolean;
+  link: string;
+  acl?: any;
 }
 
 export interface CollectionRetreival {
   collectionID?: string;
   type?: Shared;
+}
+
+export interface CollectionShare {
+  email?: string;
+  level?: ShareLevel;
 }

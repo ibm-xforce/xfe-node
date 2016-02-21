@@ -1,4 +1,4 @@
-import {apiUrl} from "./config";
+import {apiUrl, webUrl} from "./config";
 
 // External
 import * as request from "request";
@@ -7,10 +7,72 @@ import * as _ from "lodash";
 import * as fs from "fs";
 
 // Internal
-import { Collection } from "./interfaces/collection";
+import { ICollection } from "./interfaces/collection";
 import { CollectionCreation } from "./interfaces/collectionCreation";
 import {CollectionRetreival} from "./interfaces/collection";
 import {Shared} from "./interfaces/collection";
+import {CollectionShare} from "./interfaces/collection";
+
+export class Collection {
+  request: any;
+  collectionID: string;
+  link: string;
+  acl: any;
+  constructor(request: any, CollectionID: string) {
+    this.collectionID = CollectionID;
+    this.link = webUrl + `collection/${this.collectionID}`;
+    this.request = request;
+  }
+
+  shareWith(toShareWith: CollectionShare) {
+    return new Promise((resolve, reject) => {
+      if (toShareWith.email) {
+        this.request({
+          uri: `/casefiles/${this.collectionID}/acl`,
+          json: true,
+        }, (error, response, body) => {
+          if (error) {
+            reject(error);
+          } else {
+            this.acl = body.acl;
+            this.acl.shared = true;
+            this.request({
+              method: "GET",
+              uri: `/user/${toShareWith.email}`,
+              json: true
+            }, (error, response, body) => {
+              if (error) {
+                reject(error);
+              } else {
+                let user = body.user;
+                if (toShareWith.level) {
+                  user.level = toShareWith.level.toString().toLowerCase();
+                } else {
+                  user.level = "contribute";
+                }
+                this.acl.shareDetails.users.push(user);
+                this.request({
+                  method: "PUT",
+                  uri: `/casefiles/${this.collectionID}/acl`,
+                  json: true,
+                  body: {acl: this.acl}
+                }, (error) => {
+                  if (error) {
+                    reject(error);
+                  } else {
+                    resolve();
+                  }
+                });
+              }
+            });
+          }
+        });
+      } else {
+        reject();
+      }
+    });
+  }
+}
 
 export class Collections {
   request: any;
@@ -76,16 +138,16 @@ export class Collections {
                 if (error) {
                   reject(error);
                 } else {
-                  resolve(collectionID);
+                  resolve(new Collection(this.request, collectionID));
                 }
               });
             } else {
-              resolve(collectionID);
+              resolve(new Collection(this.request, collectionID));
             }
           });
 
         } else {
-          resolve(collectionID);
+          resolve(new Collection(this.request, collectionID));
         }
       });
     });
@@ -119,7 +181,7 @@ export class Collections {
       }
       this.request({
         uri: uri
-      }, function(error, response, body) {
+      }, function (error, response, body) {
         if (error) {
           reject(error);
         } else {

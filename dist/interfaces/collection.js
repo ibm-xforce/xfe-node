@@ -10,3 +10,11 @@ Shared.Mine = "mine";
 Shared.Shared = "shared";
 Shared.Public = "public";
 exports.Shared = Shared;
+
+var ShareLevel = function ShareLevel() {
+  _classCallCheck(this, ShareLevel);
+};
+
+ShareLevel.Read = "read";
+ShareLevel.Contribute = "contribute";
+exports.ShareLevel = ShareLevel;

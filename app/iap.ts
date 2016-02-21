@@ -33,7 +33,7 @@ export class IAP {
   get(appName: string) {
     return new Promise((resolve, reject) => {
       this.request({
-        uri: "/app/" + appName
+        uri: `/app/${appName}`
       }, function (error, response, body) {
         if (error) {
           reject(error);

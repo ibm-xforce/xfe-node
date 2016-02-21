@@ -27,7 +27,7 @@ export class IPR {
   get(ipAddress: string) {
     return new Promise((resolve, reject) => {
       this.request({
-        uri: "/ipr/" + ipAddress
+        uri: `/ipr/${ipAddress}`
       }, function(error, response, body) {
         if (error) {
           reject(error);

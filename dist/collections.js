@@ -12,6 +12,74 @@ var _ = require("lodash");
 var fs = require("fs");
 var collection_1 = require("./interfaces/collection");
 
+var Collection = function () {
+    function Collection(request, CollectionID) {
+        _classCallCheck(this, Collection);
+
+        this.collectionID = CollectionID;
+        this.link = config_1.webUrl + ("collection/" + this.collectionID);
+        this.request = request;
+    }
+
+    _createClass(Collection, [{
+        key: "shareWith",
+        value: function shareWith(toShareWith) {
+            var _this = this;
+
+            return new Promise(function (resolve, reject) {
+                if (toShareWith.email) {
+                    _this.request({
+                        uri: "/casefiles/" + _this.collectionID + "/acl",
+                        json: true
+                    }, function (error, response, body) {
+                        if (error) {
+                            reject(error);
+                        } else {
+                            _this.acl = body.acl;
+                            _this.acl.shared = true;
+                            _this.request({
+                                method: "GET",
+                                uri: "/user/" + toShareWith.email,
+                                json: true
+                            }, function (error, response, body) {
+                                if (error) {
+                                    reject(error);
+                                } else {
+                                    var user = body.user;
+                                    if (toShareWith.level) {
+                                        user.level = toShareWith.level.toString().toLowerCase();
+                                    } else {
+                                        user.level = "contribute";
+                                    }
+                                    _this.acl.shareDetails.users.push(user);
+                                    _this.request({
+                                        method: "PUT",
+                                        uri: "/casefiles/" + _this.collectionID + "/acl",
+                                        json: true,
+                                        body: { acl: _this.acl }
+                                    }, function (error) {
+                                        if (error) {
+                                            reject(error);
+                                        } else {
+                                            resolve();
+                                        }
+                                    });
+                                }
+                            });
+                        }
+                    });
+                } else {
+                    reject();
+                }
+            });
+        }
+    }]);
+
+    return Collection;
+}();
+
+exports.Collection = Collection;
+
 var Collections = function () {
     function Collections(username, password) {
         _classCallCheck(this, Collections);
@@ -28,7 +96,7 @@ var Collections = function () {
     _createClass(Collections, [{
         key: "create",
         value: function create(collectionCreationObject) {
-            var _this = this;
+            var _this2 = this;
 
             return new Promise(function (resolve, reject) {
                 var collection = {};
@@ -42,7 +110,7 @@ var Collections = function () {
                     title: uuid.v4(),
                     contents: { wiki: "", reports: [] }
                 });
-                _this.request({
+                _this2.request({
                     method: "POST",
                     uri: "/casefiles",
                     json: true,
@@ -56,7 +124,7 @@ var Collections = function () {
                         var formData = {
                             "stix": fs.createReadStream(collection.filePath)
                         };
-                        _this.request({
+                        _this2.request({
                             method: "POST",
                             uri: "/casefiles/" + collectionID + "/importpreview",
                             formData: formData,
@@ -69,7 +137,7 @@ var Collections = function () {
                                 var postBody = {
                                     "reportkeys": body.candidates
                                 };
-                                _this.request({
+                                _this2.request({
                                     method: "POST",
                                     uri: "/casefiles/" + collectionID + "/createreports",
                                     json: true,
@@ -78,15 +146,15 @@ var Collections = function () {
                                     if (error) {
                                         reject(error);
                                     } else {
-                                        resolve(collectionID);
+                                        resolve(new Collection(_this2.request, collectionID));
                                     }
                                 });
                             } else {
-                                resolve(collectionID);
+                                resolve(new Collection(_this2.request, collectionID));
                             }
                         });
                     } else {
-                        resolve(collectionID);
+                        resolve(new Collection(_this2.request, collectionID));
                     }
                 });
             });
@@ -94,10 +162,10 @@ var Collections = function () {
     }, {
         key: "delete",
         value: function _delete(collectionID) {
-            var _this2 = this;
+            var _this3 = this;
 
             return new Promise(function (resolve, reject) {
-                _this2.request({
+                _this3.request({
                     method: "DELETE",
                     uri: "/casefiles/" + collectionID,
                     json: true
@@ -109,7 +177,7 @@ var Collections = function () {
     }, {
         key: "get",
         value: function get(collectionOptions) {
-            var _this3 = this;
+            var _this4 = this;
 
             return new Promise(function (resolve, reject) {
                 var uri = "";
@@ -124,7 +192,7 @@ var Collections = function () {
                 } else {
                     uri = "/casefiles";
                 }
-                _this3.request({
+                _this4.request({
                     uri: uri
                 }, function (error, response, body) {
                     if (error) {

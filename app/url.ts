@@ -27,7 +27,7 @@ export class URL {
   get(url: string) {
     return new Promise((resolve, reject) => {
       this.request({
-        uri: "/url/" + url
+        uri: `/url/${url}`
       }, function(error, response, body) {
         if (error) {
           reject(error);
