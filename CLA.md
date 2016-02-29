@@ -2,7 +2,7 @@
 
 **International Business Machines, Inc. (IBM)**
 
-[https://github.com/ibm-xforce/xfe-node/CLA.md](https://github.com/ibm-xforce/xfe-node/blog/master/CLA.md)
+[https://github.com/ibm-xforce/xfe-node/CLA.md](https://github.com/ibm-xforce/xfe-node/blob/master/CLA.md)
 
 
 Thank you for your interest in the xfe-node project ("the Project").
