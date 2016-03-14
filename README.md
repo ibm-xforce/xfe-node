@@ -1,4 +1,4 @@
-# xfe-node
+# X-Force Exchange Node SDK
 
 | Info          | Badges        |
 | ------------- | ------------- |
@@ -8,7 +8,7 @@
 | Stats |  [![NPM Image][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url]
 ## Description
 
-xfe-node is a Node.js library for interacting with the [IBM X-Force Exchange](https://exchange.xforce.ibmcloud.com).
+The X-Force Exchange Node SDK is a Node.js library for interacting with the [IBM X-Force Exchange](https://exchange.xforce.ibmcloud.com).
 It provides a wrapper around the API which you can [use directly](https://api.xforce.ibmcloud.com) and 
 also provides some convenience functionality.
 
