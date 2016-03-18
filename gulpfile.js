@@ -52,10 +52,10 @@ gulp.task('doc', function(cb) {
       module: "commonjs",
       target: "es6",
       includeDeclarations: true,
+      excludeExternals: true,
       out: "./doc",
       name: "xfe-node",
-      version: true,
-      theme: "minimal"
+      version: true
     }));
 });
 

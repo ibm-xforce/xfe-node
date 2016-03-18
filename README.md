@@ -32,7 +32,7 @@ xfeClient.ipr.get("1.2.3.4").then(function(response) {
 })
 ```
 
-View full interface documentation [here](https://cdn.rawgit.com/ibm-xforce/xfe-node/v0.1.0/doc/index.html).
+View full interface documentation [here](https://ibm-xforce.github.io/xfe-node/).
 
 ## Support
 If you are having any questions or issues getting things to work, you can:

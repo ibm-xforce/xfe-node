@@ -5,6 +5,9 @@ import { Collections } from "./collections";
 import { Files } from "./files";
 import "babel-polyfill";
 
+/**
+ * The default class for the X-Force Exchange.
+ */
 export default class XFE {
   ipr: IPR;
   url: URL;

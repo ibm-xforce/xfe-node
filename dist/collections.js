@@ -78,8 +78,6 @@ var Collection = function () {
     return Collection;
 }();
 
-exports.Collection = Collection;
-
 var Collections = function () {
     function Collections(username, password) {
         _classCallCheck(this, Collections);

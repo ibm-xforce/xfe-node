@@ -20,6 +20,19 @@ export class Files {
     });
   }
 
+  /**
+   * Gets report indicators from a local file
+   * @param filePath - Path on your local machine to the file you want to upload
+   * @returns {Promise<T>}
+   * @example
+   *
+   * ```javascript
+   * 
+   * xfeClient.files.getIntel("./email.eml").then(function(result) {
+   *   console.log(result);
+   * });
+   * ```
+   */
   getIntel(filePath: string) {
     return new Promise((resolve, reject) => {
       if (filePath) {

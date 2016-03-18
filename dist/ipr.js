@@ -6,52 +6,54 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var config_1 = require("./config");
 var request = require("request");
+var xfe;
+(function (xfe) {
+    var IPR = function () {
+        /**
+         * Creates an IPR object
+         * @param {string} username - XFE API Username
+         * @param {string} password - XFE API Password
+         */
 
-var IPR = function () {
-    /**
-     * Creates an IPR object
-     * @param {string} username - XFE API Username
-     * @param {string} password - XFE API Password
-       */
+        function IPR(username, password) {
+            _classCallCheck(this, IPR);
 
-    function IPR(username, password) {
-        _classCallCheck(this, IPR);
-
-        this.request = request.defaults({
-            baseUrl: config_1.apiUrl,
-            auth: {
-                user: username,
-                pass: password
-            }
-        });
-    }
-    /**
-     * Get IP Address Threat Intelligence
-     * @param {string} ipAddress - IPv4/IPv6 Address to get threat intelligence for
-     * @returns {Promise<T>}
-       */
-
-
-    _createClass(IPR, [{
-        key: "get",
-        value: function get(ipAddress) {
-            var _this = this;
-
-            return new Promise(function (resolve, reject) {
-                _this.request({
-                    uri: "/ipr/" + ipAddress
-                }, function (error, response, body) {
-                    if (error) {
-                        reject(error);
-                    } else {
-                        resolve(body);
-                    }
-                });
+            this.request = request.defaults({
+                baseUrl: config_1.apiUrl,
+                auth: {
+                    user: username,
+                    pass: password
+                }
             });
         }
-    }]);
+        /**
+         * Get IP Address Threat Intelligence
+         * @param {string} ipAddress - IPv4/IPv6 Address to get threat intelligence for
+         * @returns {Promise<T>}
+         */
 
-    return IPR;
-}();
 
-exports.IPR = IPR;
+        _createClass(IPR, [{
+            key: "get",
+            value: function get(ipAddress) {
+                var _this = this;
+
+                return new Promise(function (resolve, reject) {
+                    _this.request({
+                        uri: "/ipr/" + ipAddress
+                    }, function (error, response, body) {
+                        if (error) {
+                            reject(error);
+                        } else {
+                            resolve(body);
+                        }
+                    });
+                });
+            }
+        }]);
+
+        return IPR;
+    }();
+
+    xfe.IPR = IPR;
+})(xfe || (xfe = {}));
