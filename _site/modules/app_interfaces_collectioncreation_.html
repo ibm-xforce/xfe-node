@@ -3,18 +3,18 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>xfe-node</title>
+	<title>&quot;app/interfaces/collectionCreation&quot; | xfe-node</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="assets/css/main.css">
-	<script src="assets/js/modernizr.js"></script>
+	<link rel="stylesheet" href="../assets/css/main.css">
+	<script src="../assets/js/modernizr.js"></script>
 </head>
 <body>
 <header>
 	<div class="tsd-page-toolbar">
 		<div class="container">
 			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
 						<input id="tsd-search-field" type="text" />
@@ -23,7 +23,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">xfe-node</a>
+					<a href="../index.html" class="title">xfe-node</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -52,129 +52,76 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="globals.html">Globals</a>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="app_interfaces_collectioncreation_.html">&quot;app/interfaces/collectionCreation&quot;</a>
 				</li>
 			</ul>
-			<h1> xfe-node</h1>
+			<h1>External module &quot;app/interfaces/collectionCreation&quot;</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<div class="tsd-panel tsd-typography">
-				<h1 id="x-force-exchange-node-sdk">X-Force Exchange Node SDK</h1>
-				<table>
-					<thead>
-						<tr>
-							<th>Info</th>
-							<th>Badges</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>License</td>
-							<td><a href="http://www.apache.org/licenses/LICENSE-2.0"><img src="http://img.shields.io/badge/license-Apachev2-blue.svg?style=flat-square" alt="Apache license"></a></td>
-						</tr>
-						<tr>
-							<td>Testing</td>
-							<td><a href="https://travis-ci.org/ibm-xforce/xfe-node"><img src="http://img.shields.io/travis/ibm-xforce/xfe-node.svg?style=flat-square" alt="Build Status"></a> <a href="https://coveralls.io/r/ibm-xforce/xfe-node?branch=master"><img src="https://img.shields.io/coveralls/ibm-xforce/xfe-node.svg?style=flat-square" alt="Coverage Status"></a></td>
-						</tr>
-						<tr>
-							<td>Quality</td>
-							<td><a href="https://david-dm.org/ibm-xforce/xfe-node"><img src="https://img.shields.io/david/ibm-xforce/xfe-node.svg?style=flat-square" alt="Dependencies status"></a></td>
-						</tr>
-						<tr>
-							<td>Stats</td>
-							<td><a href="https://www.npmjs.com/package/xfe"><img src="https://img.shields.io/npm/v/xfe.svg" alt="NPM Image"></a> <a href="https://www.npmjs.com/package/xfe"><img src="https://img.shields.io/npm/dm/xfe.svg" alt="Downloads"></a></td>
-						</tr>
-					</tbody>
-				</table>
-				<h2 id="description">Description</h2>
-				<p>The X-Force Exchange Node SDK is a Node.js library for interacting with the <a href="https://exchange.xforce.ibmcloud.com">IBM X-Force Exchange</a>.
-					It provides a wrapper around the API which you can <a href="https://api.xforce.ibmcloud.com">use directly</a> and
-				also provides some convenience functionality.</p>
-				<h2 id="installation">Installation</h2>
-				<p>First, install npm on your machine. Then install the library in your project with</p>
-				<pre><code class="lang-shell">npm install xfe --save
-</code></pre>
-				<h2 id="how-to-use">How to Use</h2>
-				<p>Obtain an <a href="https://exchange.xforce.ibmcloud.com/settings/api">API username and password</a></p>
-				<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> xfe = <span class="hljs-built_in">require</span>(<span class="hljs-string">"xfe"</span>);
-<span class="hljs-keyword">var</span> xfeClient = <span class="hljs-keyword">new</span> xfe(<span class="hljs-string">"api username"</span>, <span class="hljs-string">"api password"</span>);
-
-xfeClient.ipr.get(<span class="hljs-string">"1.2.3.4"</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">response</span>) </span>{
-  <span class="hljs-built_in">console</span>.log(response);
-})
-</code></pre>
-				<p>View full interface documentation <a href="https://ibm-xforce.github.io/xfe-node/">here</a>.</p>
-				<h2 id="support">Support</h2>
-				<p>If you are having any questions or issues getting things to work, you can:</p>
-				<ul>
-					<li>Ask a question in <a href="https://developer.ibm.com/answers/index.html">IBM DeveloperWorks Answers</a> under the <a href="https://developer.ibm.com/answers/topics/xfe-node/">xfe-node</a> tag.</li>
-				</ul>
-				<p>Project&#39;s issue on GitHub should be used discuss bugs and features.</p>
-				<h2 id="contributing-to-the-project">Contributing to the project</h2>
-				<p>We welcome any contributions to the project. Please check the <a href=".github/CONTRIBUTING.md">CONTRIBUTING.md</a> for contribution guidelines.</p>
-				<p>Check out our contributors <a href="https://github.com/ibm-xforce/xfe-node/graphs/contributors">here</a></p>
-				<h3 id="development">Development</h3>
-				<h4 id="prepare-your-environment">Prepare your environment</h4>
-				<ul>
-					<li>Install <a href="http://nodejs.org/">Node.js</a> and NPM (should come with)</li>
-					<li>Install global dev dependencies: <code>npm install -g gulp</code></li>
-					<li>Install local dev dependencies: <code>npm install</code> while current directory is xfe-node repo</li>
-				</ul>
-				<h4 id="build">Build</h4>
-				<ul>
-					<li>Build the whole project: <code>gulp</code> - this will run <code>lint</code>, <code>build</code>, and <code>test</code> targets</li>
-				</ul>
-				<h3 id="release">Release</h3>
-				<ul>
-					<li>Use GitHub&#39;s release tool to draft and publish a release. I like the format better than
-					changelogs.</li>
-				</ul>
-			</div>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Interfaces</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-interface tsd-parent-kind-external-module"><a href="../interfaces/app_interfaces_collectioncreation_.ollectioncreation.html" class="tsd-kind-icon">Collection<wbr>Creation</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
 					<li class="globals  ">
-						<a href="globals.html"><em>Globals</em></a>
+						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/app_app_.html">"app/app"</a>
+						<a href="app_app_.html">"app/app"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/app_collections_.html">"app/collections"</a>
+						<a href="app_collections_.html">"app/collections"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/app_config_.html">"app/config"</a>
+						<a href="app_config_.html">"app/config"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/app_files_.html">"app/files"</a>
+						<a href="app_files_.html">"app/files"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/app_iap_.html">"app/iap"</a>
+						<a href="app_iap_.html">"app/iap"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/app_interfaces_collection_.html">"app/interfaces/collection"</a>
+						<a href="app_interfaces_collection_.html">"app/interfaces/collection"</a>
+					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="app_interfaces_collectioncreation_.html">"app/interfaces/collection<wbr>Creation"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/app_interfaces_collectioncreation_.html">"app/interfaces/collection<wbr>Creation"</a>
+						<a href="app_ipr_.html">"app/ipr"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/app_ipr_.html">"app/ipr"</a>
+						<a href="app_url_.html">"app/url"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/app_url_.html">"app/url"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/typings_main_d_.html">"typings/main.d"</a>
+						<a href="typings_main_d_.html">"typings/main.d"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="../interfaces/app_interfaces_collectioncreation_.ollectioncreation.html" class="tsd-kind-icon">Collection<wbr>Creation</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
@@ -243,7 +190,7 @@ xfeClient.ipr.get(<span class="hljs-string">"1.2.3.4"</span>).then(<span class="
 	<p>Generated using <a href="http://typedoc.io" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
-<script src="assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>
