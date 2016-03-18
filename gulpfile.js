@@ -55,7 +55,7 @@ gulp.task('doc', function(cb) {
       out: "./doc",
       name: "xfe-node",
       version: true,
-      theme: "./node_modules/typedoc-markdown-theme/bin"
+      theme: "minimal"
     }));
 });
 
