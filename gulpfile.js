@@ -49,12 +49,13 @@ gulp.task('compile:typescript', function() {
 gulp.task('doc', function(cb) {
   tsProject.src()
     .pipe(typedoc({
-      "module": "commonjs",
-      "target": "es6",
+      module: "commonjs",
+      target: "es6",
       includeDeclarations: true,
       out: "./doc",
       name: "xfe-node",
-      version: true
+      version: true,
+      theme: "./node_modules/typedoc-markdown-theme/bin"
     }));
 });
 

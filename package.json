@@ -40,7 +40,9 @@
     "mocha": "*",
     "nock": "^7.0.2",
     "run-sequence": "^1.1.1",
-    "tslint": "^3.3.0"
+    "tslint": "^3.3.0",
+    "typedoc": "^0.3.12",
+    "typedoc-markdown-theme": "0.0.3"
   },
   "typescript": {
     "definition": "index.d.ts"
@@ -56,7 +58,8 @@
     "test": "gulp buildtest",
     "preversion": "gulp buildtest",
     "version": "gulp buildtest && git add -A dist",
-    "postversion": "git push && git push --tags"
+    "postversion": "git push && git push --tags",
+    "deploy": "git-directory-deploy --directory doc --branch gh-pages"
   },
   "keywords": [
     "xfe",

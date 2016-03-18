@@ -25,5 +25,6 @@ function XFE(username, password) {
     this.files = new files_1.Files(username, password);
 };
 
-exports.XFE = XFE;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = XFE;
 module.exports = XFE;
