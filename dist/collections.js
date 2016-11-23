@@ -7,7 +7,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var config_1 = require("./config");
 // External
 var request = require("request");
-var uuid = require("node-uuid");
+var uuid = require("uuid");
 var _ = require("lodash");
 var fs = require("fs");
 var collection_1 = require("./interfaces/collection");

@@ -2,7 +2,7 @@ import {apiUrl, webUrl} from "./config";
 
 // External
 import * as request from "request";
-import * as uuid from "node-uuid";
+import * as uuid from "uuid";
 import * as _ from "lodash";
 import * as fs from "fs";
 
